@@ -30,6 +30,7 @@ with open("kubectl.txt", 'r') as stream:
 #Функция глубокого поиска и сравнения
 def deepsearch(hl, kb):
     for key in hl:
+        print(key)
         if key in kb:
             #print(key, 'yes')
             if (type(hl[key]) is dict) and (type(kb[key]) is dict):
@@ -47,5 +48,7 @@ for key in helm_d.keys():
     if key in kubectl_d.keys():
         print(key, 'yes')
         deepsearch(helm_d[key], kubectl_d[key])
+        print()
     else:
         print(key, 'no')
+        print()
