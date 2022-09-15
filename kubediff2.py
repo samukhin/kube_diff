@@ -37,8 +37,21 @@ def deepsearch(hl, kb):
                 deepsearch(hl[key], kb[key])
             else:
                 if str(hl[key]) != str(kb[key]):
-                    print(hl[key])
-                    print(kb[key])
+                    if (type(hl[key]) is list) and (type(kb[key]) is list):
+                        for el in hl[key]:
+                            if type(el) is dict:
+                                print(dict(sorted(el.items())))
+                            else:
+                                print(el)
+                        print()
+                        for el in kb[key]:
+                            if type(el) is dict:
+                                print(dict(sorted(el.items())))
+                            else:
+                                print(el)
+                    else:
+                        print(hl[key])
+                        print(kb[key])
         else:
             print(key, 'no')
 
