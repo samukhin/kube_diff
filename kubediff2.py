@@ -20,5 +20,16 @@ with open("kubectl.txt", 'r') as stream:
             kubectl_d[(item['kind'], item['metadata']['name'])] = item
 
 
-print(helm_d.keys())
-print(kubectl_d.keys())
+#print(helm_d.keys())
+#print(kubectl_d.keys())
+
+for key in helm_d.keys():
+    if key in kubectl_d.keys():
+        print(key, 'yes')
+        for sub_key in helm_d[key]:
+            if sub_key in kubectl_d[key]:
+                print(sub_key, 'yes')
+            else:
+                print(sub_key, 'no')
+    else:
+        print(key, 'no')
